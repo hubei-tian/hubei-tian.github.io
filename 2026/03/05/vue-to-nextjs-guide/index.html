@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>从 Vue 到 Next.js：一位前端老炮的转型实战笔记 | 小霸王的技术笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="前言：Vue 转 Next.js 真的需要从零学起吗?最近在技术社区看到一篇很有启发性的文章,讲的是 Vue 开发者如何快速上手 Next.js。作为一个在 Vue 生态摸爬滚打多年的前端开发者,我深有同感——当第一次打开 Next.js 文档时,满屏的 App Router、Server Component、React 确实让人有点懵。 但事实上,如果你已经熟练掌握 Vue,那么学习 Next.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从 Vue 到 Next.js：一位前端老炮的转型实战笔记">
+<meta property="og:url" content="https://hubei-tian.github.io/2026/03/05/vue-to-nextjs-guide/index.html">
+<meta property="og:site_name" content="小霸王的技术笔记">
+<meta property="og:description" content="前言：Vue 转 Next.js 真的需要从零学起吗?最近在技术社区看到一篇很有启发性的文章,讲的是 Vue 开发者如何快速上手 Next.js。作为一个在 Vue 生态摸爬滚打多年的前端开发者,我深有同感——当第一次打开 Next.js 文档时,满屏的 App Router、Server Component、React 确实让人有点懵。 但事实上,如果你已经熟练掌握 Vue,那么学习 Next.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-05T01:45:00.000Z">
+<meta property="article:modified_time" content="2026-03-05T01:49:13.084Z">
+<meta property="article:author" content="小霸王">
+<meta property="article:tag" content="Next.js">
+<meta property="article:tag" content="React">
+<meta property="article:tag" content="SSR">
+<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="前端框架">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="小霸王的技术笔记" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">小霸王的技术笔记</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">8-bit 赛博逆子的全栈修炼手册</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://hubei-tian.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-vue-to-nextjs-guide" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/03/05/vue-to-nextjs-guide/" class="article-date">
+  <time class="dt-published" datetime="2026-03-05T01:45:00.000Z" itemprop="datePublished">2026-03-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>►<a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6%E8%BF%81%E7%A7%BB/">框架迁移</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      从 Vue 到 Next.js：一位前端老炮的转型实战笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="前言：Vue-转-Next-js-真的需要从零学起吗"><a href="#前言：Vue-转-Next-js-真的需要从零学起吗" class="headerlink" title="前言：Vue 转 Next.js 真的需要从零学起吗?"></a>前言：Vue 转 Next.js 真的需要从零学起吗?</h2><p>最近在技术社区看到一篇很有启发性的文章,讲的是 Vue 开发者如何快速上手 Next.js。作为一个在 Vue 生态摸爬滚打多年的前端开发者,我深有同感——当第一次打开 Next.js 文档时,满屏的 App Router、Server Component、React 确实让人有点懵。</p>
+<p>但事实上,如果你已经熟练掌握 Vue,那么学习 Next.js 的门槛并没有想象中那么高。今天就来聊聊如何用”Vue 思维”快速理解 Next.js,以及我的一些实战心得。</p>
+<span id="more"></span>
+
+<h2 id="Next-js-到底是什么"><a href="#Next-js-到底是什么" class="headerlink" title="Next.js 到底是什么?"></a>Next.js 到底是什么?</h2><p>首先要明确一点:<strong>Next.js 不是”另一个 Vue”</strong>。它是基于 React 的全栈框架,自带了路由、服务端渲染(SSR)、API 路由等能力,开箱即用。</p>
+<p>可以用 Vue 生态类比一下:</p>
+<ul>
+<li><strong>Vue</strong> 是一个渐进式前端框架</li>
+<li><strong>Nuxt.js</strong> 是 Vue 的全栈增强版(提供 SSR、路由、中间件等)</li>
+</ul>
+<p>同样地:</p>
+<ul>
+<li><strong>React</strong> 是一个用于构建 UI 的 JavaScript 库</li>
+<li><strong>Next.js</strong> 就是 React 的全栈增强版</li>
+</ul>
+<p>所以你需要补的课并不是”重新学一个前端框架”,而是:</p>
+<ol>
+<li><strong>React 的语法</strong> (JSX、Hooks 等)</li>
+<li><strong>Next.js 的约定</strong> (目录结构、路由规则等)</li>
+</ol>
+<p>好消息是,前者和 Vue 的很多概念可以一一对应,后者主要是记规则和最佳实践。</p>
+<h2 id="Vue-与-React-Next-js-核心概念对照表"><a href="#Vue-与-React-Next-js-核心概念对照表" class="headerlink" title="Vue 与 React&#x2F;Next.js 核心概念对照表"></a>Vue 与 React&#x2F;Next.js 核心概念对照表</h2><p>用你已经掌握的 Vue 概念去映射 React&#x2F;Next.js,会轻松很多:</p>
+<table>
+<thead>
+<tr>
+<th>Vue 熟悉的概念</th>
+<th>Next.js &#x2F; React 对应写法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;template&gt;</code> 写 HTML</td>
+<td>在组件中写 JSX (JS 里写 HTML,用 <code>className</code> 代替 <code>class</code>)</td>
+</tr>
+<tr>
+<td><code>v-model</code> 双向绑定</td>
+<td><code>useState</code> + 受控组件 (手写 <code>value</code> 和 <code>onChange</code>)</td>
+</tr>
+<tr>
+<td><code>v-if</code> &#x2F; <code>v-for</code></td>
+<td>三元运算符 <code>? :</code>、逻辑与 <code>&amp;&amp;</code>、<code>.map()</code></td>
+</tr>
+<tr>
+<td><code>computed</code></td>
+<td><code>useMemo()</code> 或直接用函数计算后渲染</td>
+</tr>
+<tr>
+<td><code>watch</code> &#x2F; 生命周期钩子</td>
+<td><code>useEffect()</code>,依赖数组控制执行时机</td>
+</tr>
+<tr>
+<td>Vue Router</td>
+<td>文件系统路由: <code>app/xxx/page.tsx</code> 就是路由 <code>/xxx</code></td>
+</tr>
+<tr>
+<td>Vuex &#x2F; Pinia</td>
+<td><code>useState</code> + <code>Context</code>,或使用 Zustand 等状态库</td>
+</tr>
+<tr>
+<td>插槽 <code>&lt;slot&gt;</code></td>
+<td><code>props.children</code> 或具名 props</td>
+</tr>
+</tbody></table>
+<h3 id="两个最容易踩的坑"><a href="#两个最容易踩的坑" class="headerlink" title="两个最容易踩的坑"></a>两个最容易踩的坑</h3><ol>
+<li><p><strong>事件和属性名都用小驼峰</strong>:</p>
+<ul>
+<li>Vue: <code>&lt;div class=&quot;box&quot; @click=&quot;handleClick&quot;&gt;</code></li>
+<li>React: <code>&lt;div className=&quot;box&quot; onClick={handleClick}&gt;</code></li>
+</ul>
+</li>
+<li><p><strong>状态不能直接修改</strong>:</p>
+<ul>
+<li>Vue 可以直接 <code>this.count++</code></li>
+<li>React 必须用 <code>setState</code> 系列 API 去”替换”状态</li>
+</ul>
+</li>
+</ol>
+<p>写两个页面、改几个组件,手感很快就来了。</p>
+<h2 id="五分钟把-Next-js-跑起来"><a href="#五分钟把-Next-js-跑起来" class="headerlink" title="五分钟把 Next.js 跑起来"></a>五分钟把 Next.js 跑起来</h2><p>先别急着啃文档。最快的学习方式是:把项目拉起来,看一遍目录结构,比看十页教程都管用。</p>
+<p>在终端执行:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npx create-next-app@latest my-next-app</span><br><span class="line"><span class="built_in">cd</span> my-next-app</span><br><span class="line">pnpm install  <span class="comment"># 或 npm i</span></span><br><span class="line">pnpm dev      <span class="comment"># 或 npm run dev</span></span><br></pre></td></tr></table></figure>
+
+<p>按提示选择:</p>
+<ul>
+<li>✅ TypeScript</li>
+<li>✅ ESLint</li>
+<li>✅ Tailwind CSS</li>
+<li>✅ <code>src/</code> 目录</li>
+<li>✅ App Router</li>
+</ul>
+<p>浏览器打开 <code>http://localhost:3000</code>,能看到默认页就说明环境 OK 了。</p>
+<h3 id="重点关注的目录"><a href="#重点关注的目录" class="headerlink" title="重点关注的目录"></a>重点关注的目录</h3><ul>
+<li><p><strong><code>app/</code></strong>: 所有路由和页面都在这里</p>
+<ul>
+<li><code>app/page.tsx</code> → 首页 <code>/</code></li>
+<li><code>app/about/page.tsx</code> → <code>/about</code> 页面</li>
+<li>类似 Nuxt 的 <code>pages/</code>,但每个路由对应一个 <code>page.tsx</code></li>
+</ul>
+</li>
+<li><p><strong><code>app/layout.tsx</code></strong>: 全局布局,包住所有页面</p>
+<ul>
+<li>类似 Vue 中包 <code>&lt;router-view&gt;</code> 的那层布局组件</li>
+</ul>
+</li>
+</ul>
+<p>试着改改 <code>app/page.tsx</code> 里的文字,保存,看页面热更新。这一步完成,你就已经”摸到” Next.js 了。</p>
+<h2 id="第一个分水岭-服务端组件-vs-客户端组件"><a href="#第一个分水岭-服务端组件-vs-客户端组件" class="headerlink" title="第一个分水岭:服务端组件 vs 客户端组件"></a>第一个分水岭:服务端组件 vs 客户端组件</h2><p>这是 Next.js 13+ (App Router) 最重要也是最”反直觉”的概念:</p>
+<p><strong>Next.js 的组件默认是服务端组件 (Server Component)</strong>,在服务器上渲染成 HTML 再发给浏览器。</p>
+<h3 id="什么时候用服务端组件"><a href="#什么时候用服务端组件" class="headerlink" title="什么时候用服务端组件?"></a>什么时候用服务端组件?</h3><ul>
+<li>纯展示内容 (博客文章、产品列表等)</li>
+<li>直接调后端 API 获取数据</li>
+<li>不需要交互 (点击、输入等)</li>
+</ul>
+<p>好处:首屏快、SEO 友好、Bundle 体积小。</p>
+<h3 id="什么时候必须用客户端组件"><a href="#什么时候必须用客户端组件" class="headerlink" title="什么时候必须用客户端组件?"></a>什么时候必须用客户端组件?</h3><p>一旦你要<strong>交互</strong>——点击、表单、<code>useState</code>、<code>useEffect</code>——就必须告诉 Next.js:”这是客户端组件”。</p>
+<p>在文件顶部加一行:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;use client&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>一句话记住:默认是服务端,要交互就加 <code>&#39;use client&#39;</code></strong>。</p>
+<p>这和 Vue 里”默认都能交互”不太一样,但习惯后会发现这种设计对性能优化很友好。</p>
+<h2 id="数据获取-别一上来就-useEffect"><a href="#数据获取-别一上来就-useEffect" class="headerlink" title="数据获取:别一上来就 useEffect"></a>数据获取:别一上来就 <code>useEffect</code></h2><p>在 Vue 里你可能习惯在 <code>onMounted</code> 里 <code>fetch</code> 数据。</p>
+<p>在 Next.js 的<strong>服务端组件</strong>里,直接 <code>async/await</code> 就行,不用 Hooks:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app/posts/page.tsx (服务端组件,默认)</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">PostsPage</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> res = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;https://api.example.com/posts&#x27;</span>);</span><br><span class="line">  <span class="keyword">const</span> posts = <span class="keyword">await</span> res.<span class="title function_">json</span>();</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;posts.map((p) =&gt; (</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#123;p.id&#125;</span>&gt;</span>&#123;p.title&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      ))&#125;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">PostsPage</span>;</span><br></pre></td></tr></table></figure>
+
+<p>数据在服务端拿完,和 HTML 一起送到前端。需要交互的部分 (比如每项有个按钮) 再单独拆成客户端组件,用 <code>&#39;use client&#39;</code>。</p>
+<h2 id="路由和导航-文件系统即路由"><a href="#路由和导航-文件系统即路由" class="headerlink" title="路由和导航:文件系统即路由"></a>路由和导航:文件系统即路由</h2><p>Next.js 使用基于文件的路由,不用手写路由配置。在 <code>app</code> 目录下建文件夹和文件即可:</p>
+<table>
+<thead>
+<tr>
+<th>文件路径</th>
+<th>对应路由</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>app/page.tsx</code></td>
+<td><code>/</code></td>
+</tr>
+<tr>
+<td><code>app/about/page.tsx</code></td>
+<td><code>/about</code></td>
+</tr>
+<tr>
+<td><code>app/blog/[id]/page.tsx</code></td>
+<td><code>/blog/123</code> (动态路由,<code>id</code> 在组件里通过 <code>params</code> 获取)</td>
+</tr>
+</tbody></table>
+<h3 id="页面跳转"><a href="#页面跳转" class="headerlink" title="页面跳转"></a>页面跳转</h3><p>使用 <code>Link</code> 组件,别用 <code>&lt;a&gt;</code>,否则会整页刷新:</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">Link</span> <span class="keyword">from</span> <span class="string">&#x27;next/link&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">Link</span> <span class="attr">href</span>=<span class="string">&quot;/about&quot;</span>&gt;</span>关于我们<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>和 Vue Router 的 <code>&lt;RouterLink&gt;</code> 一个道理。</p>
+<h2 id="我的实战建议"><a href="#我的实战建议" class="headerlink" title="我的实战建议"></a>我的实战建议</h2><h3 id="1-不用追求一次全懂"><a href="#1-不用追求一次全懂" class="headerlink" title="1. 不用追求一次全懂"></a>1. 不用追求一次全懂</h3><p>先按上面的步骤把项目跑起来,改几个页面,加一个”带交互的客户端小组件”,手感来了再慢慢看官方文档里的:</p>
+<ul>
+<li>数据缓存 (Data Caching)</li>
+<li>Server Actions (表单处理的新范式)</li>
+<li>中间件 (Middleware)</li>
+</ul>
+<h3 id="2-React-语法速成"><a href="#2-React-语法速成" class="headerlink" title="2. React 语法速成"></a>2. React 语法速成</h3><p>如果你完全没写过 React,重点学这几个:</p>
+<ul>
+<li><strong>JSX 基础</strong>: 在 JS 里写 HTML 的语法</li>
+<li><strong><code>useState</code></strong>: 管理组件状态</li>
+<li><strong><code>useEffect</code></strong>: 副作用处理 (类似 Vue 的 <code>watch</code> + 生命周期)</li>
+<li><strong><code>.map()</code></strong>: 渲染列表</li>
+</ul>
+<p>MDN + React 官方文档的”快速入门”章节,半天就能过一遍。</p>
+<h3 id="3-服务端-vs-客户端的核心权衡"><a href="#3-服务端-vs-客户端的核心权衡" class="headerlink" title="3. 服务端 vs 客户端的核心权衡"></a>3. 服务端 vs 客户端的核心权衡</h3><ul>
+<li><strong>默认用服务端组件</strong>:能在服务端做的就在服务端做</li>
+<li><strong>只在必要时加 <code>&#39;use client&#39;</code></strong>:保持客户端 Bundle 尽可能小</li>
+</ul>
+<p>这是 Next.js 性能优化的核心理念,也是它和传统 SPA 最大的区别。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>会 Vue,就已经站在 Next.js 的起跑线上了</strong>。剩下的,只是:</p>
+<ol>
+<li>熟悉 React 的 JSX 和 Hooks 语法 (和 Vue 概念一一对应)</li>
+<li>记住 Next.js 的目录约定和路由规则</li>
+<li>理解”服务端组件优先,按需客户端”的设计哲学</li>
+</ol>
+<p>不需要推倒重来,不需要从零学起。多写几个页面,多踩几个坑,手感很快就来了。</p>
+<p>下次当你打开一个 Next.js 项目,不会再觉得陌生——因为你已经知道:这只是 React + 文件路由 + 服务端能力的组合拳而已。</p>
+<hr>
+<p><strong>参考资料</strong>:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://nextjs.org/docs">Next.js 官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://react.dev/">React 官方文档 (Beta 版)</a></li>
+<li>掘金社区相关技术讨论</li>
+</ul>
+<blockquote>
+<p>本文基于对掘金技术文章的学习和个人实战经验整理,希望能帮到正在学习 Next.js 的 Vue 开发者们。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hubei-tian.github.io/2026/03/05/vue-to-nextjs-guide/" data-id="cuiduvFNYVp6glOZAwQdjcHP9" data-title="从 Vue 到 Next.js：一位前端老炮的转型实战笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Next-js/" rel="tag">Next.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSR/" rel="tag">SSR</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" rel="tag">前端框架</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/03/05/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6%E8%BF%81%E7%A7%BB/">框架迁移</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Next-js/" rel="tag">Next.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSR/" rel="tag">SSR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" rel="tag">前端框架</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Next-js/" style="font-size: 10px;">Next.js</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SSR/" style="font-size: 10px;">SSR</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">前端框架</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">三月 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/03/05/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2026/03/05/vue-to-nextjs-guide/">从 Vue 到 Next.js：一位前端老炮的转型实战笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 小霸王<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
