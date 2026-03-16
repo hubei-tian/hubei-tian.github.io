@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>掘金每日技术精选：Flutter鸿蒙2026路线图与Spring Cache二级缓存实战 | 小霸王的技术笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="本文为你带来今日掘金社区的两篇高质量技术分享：一篇是前端&#x2F;大前端领域的Flutter鸿蒙2026演进路线图，另一篇是后端高并发领域的基于Spring Cache的二级缓存实战。让我们一探究竟！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="掘金每日技术精选：Flutter鸿蒙2026路线图与Spring Cache二级缓存实战">
+<meta property="og:url" content="https://hubei-tian.github.io/2026/03/16/juejin-daily-20260316/index.html">
+<meta property="og:site_name" content="小霸王的技术笔记">
+<meta property="og:description" content="本文为你带来今日掘金社区的两篇高质量技术分享：一篇是前端&#x2F;大前端领域的Flutter鸿蒙2026演进路线图，另一篇是后端高并发领域的基于Spring Cache的二级缓存实战。让我们一探究竟！">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-16T06:15:00.000Z">
+<meta property="article:modified_time" content="2026-03-16T06:07:08.528Z">
+<meta property="article:author" content="小霸王">
+<meta property="article:tag" content="Flutter">
+<meta property="article:tag" content="Redis">
+<meta property="article:tag" content="Spring Boot">
+<meta property="article:tag" content="掘金精选">
+<meta property="article:tag" content="缓存">
+<meta property="article:tag" content="鸿蒙">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="小霸王的技术笔记" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">小霸王的技术笔记</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">8-bit 赛博逆子的全栈修炼手册</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://hubei-tian.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-juejin-daily-20260316" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/03/16/juejin-daily-20260316/" class="article-date">
+  <time class="dt-published" datetime="2026-03-16T06:15:00.000Z" itemprop="datePublished">2026-03-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%B9%B2%E8%B4%A7/">技术干货</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      掘金每日技术精选：Flutter鸿蒙2026路线图与Spring Cache二级缓存实战
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>本文为你带来今日掘金社区的两篇高质量技术分享：一篇是前端&#x2F;大前端领域的<strong>Flutter鸿蒙2026演进路线图</strong>，另一篇是后端高并发领域的<strong>基于Spring Cache的二级缓存实战</strong>。让我们一探究竟！</p>
+<span id="more"></span>
+
+<h2 id="一、大前端：Flutter-鸿蒙-2026-路线图，加速演进与生态融合"><a href="#一、大前端：Flutter-鸿蒙-2026-路线图，加速演进与生态融合" class="headerlink" title="一、大前端：Flutter 鸿蒙 2026 路线图，加速演进与生态融合"></a>一、大前端：Flutter 鸿蒙 2026 路线图，加速演进与生态融合</h2><p>随着鸿蒙生态的崛起，跨平台框架的适配成为了开发者关注的焦点。Flutter 鸿蒙社区正式公布了 2026 年路线规划，释放出了“加速跟进官方步伐、深化性能优化、丰富三方库生态”的强烈信号。</p>
+<h3 id="1-发版节奏提速，告别滞后感"><a href="#1-发版节奏提速，告别滞后感" class="headerlink" title="1. 发版节奏提速，告别滞后感"></a>1. 发版节奏提速，告别滞后感</h3><p>以往 Flutter-OH 版本平均需要 7 个月的适配周期，这让很多开发者在尝鲜新特性时望而却步。2026 年，社区计划将适配周期压缩至 <strong>4个月以内</strong>，按季度紧跟 Flutter 官方发版（例如 2026&#x2F;02 的 Flutter 3.41 计划在 2026&#x2F;06 完成适配）。</p>
+<h3 id="2-三大核心性能优化方向"><a href="#2-三大核心性能优化方向" class="headerlink" title="2. 三大核心性能优化方向"></a>2. 三大核心性能优化方向</h3><p>在基准测试中，Flutter-OH 的内存与负载表现仍有提升空间。新一年的优化将精准打击痛点：</p>
+<ul>
+<li><strong>内存优化</strong>：引入 DMA 内存后台释放、图片解码按需缩放（Resize）策略，动态调整 Buffer 预加载数量。</li>
+<li><strong>负载优化</strong>：消除后台动画渲染带来的 Engine 空转，引入 Raster 零脏区跳帧优化——若当前帧无变化则直接复用，这对多窗口或大屏长列表尤为关键。</li>
+<li><strong>编译器级增强</strong>：借助毕昇编译器的激进策略，提升指令执行效率与 AOT 产物性能，从而加速冷启动。</li>
+</ul>
+<h3 id="3-系统特性融合与生态扩充"><a href="#3-系统特性融合与生态扩充" class="headerlink" title="3. 系统特性融合与生态扩充"></a>3. 系统特性融合与生态扩充</h3><ul>
+<li>支持<strong>平行视界</strong>（折叠屏&#x2F;平板双窗口展示）、<strong>P3 广色域</strong>及<strong>密码自动填充服务</strong>，让应用体验与鸿蒙原生看齐。</li>
+<li>规划超 200 个高优先级三方库适配，通过 SIG 治理、开发者驱动和社区共建等多种渠道填补生态空缺。</li>
+</ul>
+<p><strong>个人思考</strong>：随着社区治理（SIG）的逐步成熟，Flutter 鸿蒙生态正在从“能用”向“好用”过渡，特别是调试工具链（hiTrace&#x2F;hiProfiler）的对接，将大幅降低开发者的试错成本。</p>
+<hr>
+<h2 id="二、后端架构：基于-Spring-Cache-Caffeine-Redis-的二级缓存方案"><a href="#二、后端架构：基于-Spring-Cache-Caffeine-Redis-的二级缓存方案" class="headerlink" title="二、后端架构：基于 Spring Cache + Caffeine + Redis 的二级缓存方案"></a>二、后端架构：基于 Spring Cache + Caffeine + Redis 的二级缓存方案</h2><p>在高并发场景下，仅仅依靠 Redis 可能会面临网络 IO 延迟以及极高并发带来的瓶颈。利用 Spring Cache 抽象层整合 Caffeine（本地缓存）和 Redis（分布式缓存），可以有效构建高性能二级缓存体系。</p>
+<h3 id="1-架构设计与核心思路"><a href="#1-架构设计与核心思路" class="headerlink" title="1. 架构设计与核心思路"></a>1. 架构设计与核心思路</h3><p>将高频热点数据同时存于本地内存和 Redis 中。请求到达时：</p>
+<ol>
+<li><strong>优先查询 Caffeine（L1）</strong>：命中则直接返回（&lt;1ms），无网络开销。</li>
+<li><strong>L1 未命中查 Redis（L2）</strong>：命中则回填 L1 并返回（约 5-10ms）。</li>
+<li><strong>L2 未命中查数据库</strong>：命中后回填 L2 与 L1。</li>
+</ol>
+<h3 id="2-核心代码实现：LayeringCacheManager"><a href="#2-核心代码实现：LayeringCacheManager" class="headerlink" title="2. 核心代码实现：LayeringCacheManager"></a>2. 核心代码实现：LayeringCacheManager</h3><p>利用 Spring Cache 的接口，我们可以自定义 <code>LayeringCacheManager</code> 包装两层缓存：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LayeringCacheManager</span> <span class="keyword">implements</span> <span class="title class_">CacheManager</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> CacheManager localCacheManager; <span class="comment">// CaffeineCacheManager</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> CacheManager remoteCacheManager; <span class="comment">// RedisCacheManager</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// ... 获取 Cache 时包装为自定义的 LayeringCache</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LayeringCache</span> <span class="keyword">implements</span> <span class="title class_">Cache</span> &#123;</span><br><span class="line">    <span class="comment">// get() 方法实现两级读取与回填逻辑</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> ValueWrapper <span class="title function_">get</span><span class="params">(Object key)</span> &#123;</span><br><span class="line">        <span class="comment">// 1. 查本地</span></span><br><span class="line">        <span class="type">ValueWrapper</span> <span class="variable">wrapper</span> <span class="operator">=</span> localCache.get(key);</span><br><span class="line">        <span class="keyword">if</span> (wrapper != <span class="literal">null</span>) <span class="keyword">return</span> wrapper;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 2. 查远程</span></span><br><span class="line">        wrapper = remoteCache.get(key);</span><br><span class="line">        <span class="keyword">if</span> (wrapper != <span class="literal">null</span>) &#123;</span><br><span class="line">            localCache.put(key, wrapper.get()); <span class="comment">// 回填</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> wrapper;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// put/evict 时需同时操作两层，如 evict 发生时，通过发布订阅模式(或者同时清除)保证集群一致性</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-性能表现"><a href="#3-性能表现" class="headerlink" title="3. 性能表现"></a>3. 性能表现</h3><p>压测数据显示，在高并发读写场景下，这套方案轻松达到了 <strong>21k+ QPS</strong> 的吞吐量且 0 异常。对于商品详情、商铺基础信息等“读多写少”的热点数据，二级缓存极大缓解了网络 IO 压力。</p>
+<p><strong>避坑指南</strong>：值得注意的是，在引入 Caffeine 时需要关注 Java 8 时间类型在 Redis 中的序列化兼容性（通过 <code>GenericJackson2JsonRedisSerializer</code> 配置 <code>JavaTimeModule</code> 解决），并在实体类上加上对应的 JSON 格式化注解。</p>
+<hr>
+<blockquote>
+<p><strong>今日总结</strong>：无论是大前端对极致性能与跨端生态的追求，还是后端架构在应对高并发时的缓存分层策略，都在印证一个道理：技术演进的尽头是对“成本（内存&#x2F;网络&#x2F;时间）”的极致榨取。各位开发者，今天你学废了吗？</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hubei-tian.github.io/2026/03/16/juejin-daily-20260316/" data-id="cuid7-s1wX-BNCWH8z3OqWDZC" data-title="掘金每日技术精选：Flutter鸿蒙2026路线图与Spring Cache二级缓存实战" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flutter/" rel="tag">Flutter</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8E%98%E9%87%91%E7%B2%BE%E9%80%89/" rel="tag">掘金精选</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%93%E5%AD%98/" rel="tag">缓存</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%B8%BF%E8%92%99/" rel="tag">鸿蒙</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2026/03/09/%E6%8E%98%E9%87%91%E6%AF%8F%E6%97%A5%E6%8A%80%E6%9C%AF%E7%B2%BE%E9%80%89%EF%BC%9A%E4%BC%81%E4%B8%9A%E7%BA%A7RAG%E7%B3%BB%E7%BB%9F%E4%B8%8EAI%E8%BE%85%E5%8A%A9Chrome%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">掘金每日技术精选：企业级RAG系统与AI辅助Chrome插件开发</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6%E8%BF%81%E7%A7%BB/">框架迁移</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%89%8D%E6%B2%BF/">技术前沿</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%B9%B2%E8%B4%A7/">技术干货</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flutter/" rel="tag">Flutter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Monorepo/" rel="tag">Monorepo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Next-js/" rel="tag">Next.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSR/" rel="tag">SSR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" rel="tag">前端框架</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E7%AB%AF/" rel="tag">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="tag">性能优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%98%E9%87%91%E7%83%AD%E6%A6%9C/" rel="tag">掘金热榜</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%98%E9%87%91%E7%B2%BE%E9%80%89/" rel="tag">掘金精选</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%93%E5%AD%98/" rel="tag">缓存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%B8%BF%E8%92%99/" rel="tag">鸿蒙</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/Flutter/" style="font-size: 10px;">Flutter</a> <a href="/tags/Monorepo/" style="font-size: 10px;">Monorepo</a> <a href="/tags/Next-js/" style="font-size: 10px;">Next.js</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SSR/" style="font-size: 10px;">SSR</a> <a href="/tags/Spring-Boot/" style="font-size: 10px;">Spring Boot</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 20px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">前端框架</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 10px;">后端</a> <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 10px;">性能优化</a> <a href="/tags/%E6%8E%98%E9%87%91%E7%83%AD%E6%A6%9C/" style="font-size: 10px;">掘金热榜</a> <a href="/tags/%E6%8E%98%E9%87%91%E7%B2%BE%E9%80%89/" style="font-size: 10px;">掘金精选</a> <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 10px;">架构</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 10px;">缓存</a> <a href="/tags/%E9%B8%BF%E8%92%99/" style="font-size: 10px;">鸿蒙</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">三月 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/03/16/juejin-daily-20260316/">掘金每日技术精选：Flutter鸿蒙2026路线图与Spring Cache二级缓存实战</a>
+          </li>
+        
+          <li>
+            <a href="/2026/03/09/%E6%8E%98%E9%87%91%E6%AF%8F%E6%97%A5%E6%8A%80%E6%9C%AF%E7%B2%BE%E9%80%89%EF%BC%9A%E4%BC%81%E4%B8%9A%E7%BA%A7RAG%E7%B3%BB%E7%BB%9F%E4%B8%8EAI%E8%BE%85%E5%8A%A9Chrome%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/">掘金每日技术精选：企业级RAG系统与AI辅助Chrome插件开发</a>
+          </li>
+        
+          <li>
+            <a href="/2026/03/06/juejin-frontend-optimization-monorepo/">掘金热门技术解析：前端首屏性能优化与 Monorepo 架构实战</a>
+          </li>
+        
+          <li>
+            <a href="/2026/03/05/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2026/03/05/vue-to-nextjs-guide/">从 Vue 到 Next.js：一位前端老炮的转型实战笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 小霸王<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
